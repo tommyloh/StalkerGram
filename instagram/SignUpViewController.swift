@@ -1,9 +1,9 @@
 //
-//  SignUpViewController.swift
-//  
+//  ExploreViewController.swift
+//  instagram
 //
-//  Created by Tommy Loh on 06/07/2016.
-//
+//  Created by Tommy Loh on 04/07/2016.
+//  Copyright © 2016 Tommy Loh. All rights reserved.
 //
 
 import UIKit
@@ -12,20 +12,20 @@ import Firebase
 class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
- 
+    
     var fireBaseRef = FIRDatabase.database().reference()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func onSignUpButtonPressed(sender: AnyObject) {
-       guard let email = emailTextField.text, let password = passwordTextField.text
-        else{
-            return
+        guard let email = emailTextField.text, let password = passwordTextField.text
+            else{
+                return
         }
         FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: { (user, error) in
             if let user = user{
@@ -37,7 +37,7 @@ class SignUpViewController: UIViewController {
                 
                 self.performSegueWithIdentifier("HomeSegue", sender: nil)
             }
-            else 
+            else
             {
                 
                 let controller = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .Alert)
@@ -48,6 +48,6 @@ class SignUpViewController: UIViewController {
             }
         })
     }
-
-
-    }
+    
+    
+}
