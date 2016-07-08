@@ -9,6 +9,7 @@
 import UIKit
 
 class FeedTableViewController: UITableViewController {
+    @IBOutlet weak var imageView: UITableViewCell!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,7 @@ class FeedTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PictureCell", forIndexPath: indexPath)
 
-        cell.textLabel!.text = "hello"
+//        cell.textLabel!.text = "hello"
 
         return cell
     }
